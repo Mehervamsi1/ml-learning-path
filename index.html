@@ -7,12 +7,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #6366f1;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --text: #1f2937;
+            --text-light: #6b7280;
+        }
         .gradient-bg {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
         }
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
         .transition-all {
             transition: all 0.3s ease;
@@ -58,15 +66,7 @@
     <header class="gradient-bg text-white py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Machine Learning Visual Guide</h1>
-            <p class="text-xl md:text-2xl opacity-90">A comprehensive, interactive roadmap to mastering ML concepts</p>
-            <div class="mt-8 flex justify-center">
-                <div class="relative w-full max-w-xl">
-                    <input type="text" placeholder="Search ML concepts..." class="w-full py-3 px-6 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-800">
-                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-purple-600 text-white p-2 rounded-full hover:bg-purple-700 transition-all">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
+            <p class="text-xl md:text-2xl opacity-90 mt-4">A comprehensive, interactive roadmap to mastering ML concepts</p>
         </div>
     </header>
 
@@ -91,6 +91,9 @@
             </button>
             <button class="tab-btn px-6 py-3 font-medium text-gray-500 hover:text-purple-600 whitespace-nowrap" data-tab="resources">
                 <i class="fas fa-book mr-2"></i> Resources
+            </button>
+            <button class="tab-btn px-6 py-3 font-medium text-gray-500 hover:text-purple-600 whitespace-nowrap" data-tab="study-path">
+                <i class="fas fa-graduation-cap mr-2"></i> Study Path
             </button>
         </div>
 
@@ -197,6 +200,37 @@
                         <div>
                             <h4 class="font-semibold text-gray-800">Repeat</h4>
                             <p class="text-gray-600">Move to the next concept for comprehensive knowledge retention.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-file-alt mr-2 text-indigo-600"></i> Key Research Papers
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Attention Is All You Need</h4>
+                                <p class="text-sm text-gray-600 mb-1">Transformer Architecture</p>
+                                <a href="https://arxiv.org/abs/1706.03762" target="_blank" class="text-xs text-indigo-600 hover:underline">arXiv:1706.03762</a>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Deep Residual Learning</h4>
+                                <p class="text-sm text-gray-600 mb-1">ResNet Architecture</p>
+                                <a href="https://arxiv.org/abs/1512.03385" target="_blank" class="text-xs text-indigo-600 hover:underline">arXiv:1512.03385</a>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Generative Adversarial Nets</h4>
+                                <p class="text-sm text-gray-600 mb-1">GANs</p>
+                                <a href="https://arxiv.org/abs/1406.2661" target="_blank" class="text-xs text-indigo-600 hover:underline">arXiv:1406.2661</a>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">BERT: Pre-training</h4>
+                                <p class="text-sm text-gray-600 mb-1">Language Representation</p>
+                                <a href="https://arxiv.org/abs/1810.04805" target="_blank" class="text-xs text-indigo-600 hover:underline">arXiv:1810.04805</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -404,13 +438,14 @@
                             <i class="fas fa-network-wired mr-2 text-purple-600"></i> Foundational Architectures
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg transition-all card-hover">
+                            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-lg transition-all card-hover">
                                 <h4 class="font-medium text-gray-800">Feedforward Networks</h4>
                                 <p class="text-sm text-gray-600 mb-2">Basic neural networks with dense layers</p>
-                                <div class="flex flex-wrap">
+                                <div class="flex flex-wrap mb-2">
                                     <span class="concept-pill">MLP</span>
                                     <span class="concept-pill">Perceptron</span>
                                 </div>
+                                <a href="https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf" target="_blank" class="text-xs text-blue-600 hover:underline">Nature Deep Learning Review</a>
                             </div>
                             
                             <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg transition-all card-hover">
@@ -441,9 +476,15 @@
                             <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-lg transition-all card-hover">
                                 <h4 class="font-medium text-gray-800">Transformer</h4>
                                 <p class="text-sm text-gray-600 mb-2">Self-attention based architecture</p>
-                                <div class="flex flex-wrap">
+                                <div class="flex flex-wrap mb-2">
                                     <span class="concept-pill">Encoder</span>
                                     <span class="concept-pill">Decoder</span>
+                                    <span class="concept-pill">Attention</span>
+                                    <span class="concept-pill">Positional Encoding</span>
+                                </div>
+                                <div class="space-y-1">
+                                    <a href="https://arxiv.org/abs/1706.03762" target="_blank" class="block text-xs text-blue-600 hover:underline">Original Transformer Paper</a>
+                                    <a href="https://arxiv.org/abs/2005.14165" target="_blank" class="block text-xs text-blue-600 hover:underline">GPT-3 Paper</a>
                                 </div>
                             </div>
                             
@@ -622,7 +663,8 @@
                             <div class="bg-red-50 p-4 rounded-lg">
                                 <h4 class="font-medium text-gray-800">Pattern Recognition and ML</h4>
                                 <p class="text-sm text-gray-600 mb-2">Christopher Bishop</p>
-                                <div class="text-xs text-gray-500">Math & Theory</div>
+                                <div class="text-xs text-gray-500 mb-2">Math & Theory</div>
+                                <a href="https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf" target="_blank" class="text-xs text-red-600 hover:underline">Book PDF</a>
                             </div>
                             
                             <div class="bg-red-50 p-4 rounded-lg">
@@ -711,6 +753,260 @@
                 </div>
             </div>
         </div>
+
+        <!-- Study Path Tab -->
+        <div class="tab-content" id="study-path">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Structured Learning Path</h2>
+                
+                <div class="space-y-8">
+                    <!-- Core Paradigms Section -->
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">1. Core Paradigms & Problems</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Learning Paradigms -->
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-gray-800 mb-3">A. Learning Paradigms</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2 py-0.5 rounded mr-2">1</span>
+                                        <div>
+                                            <span class="font-medium">Supervised Learning</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/CFN_ZyT6xL8" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://en.wikipedia.org/wiki/Supervised_learning" target="_blank" class="text-blue-600 hover:underline">Article</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2 py-0.5 rounded mr-2">2</span>
+                                        <div>
+                                            <span class="font-medium">Unsupervised Learning</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/8dqd2eBDS8Y" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://en.wikipedia.org/wiki/Unsupervised_learning" target="_blank" class="text-blue-600 hover:underline">Article</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- More paradigms would follow same pattern -->
+                                </ul>
+                            </div>
+
+                            <!-- Core Tasks -->
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-gray-800 mb-3">B. Core Tasks & Problems</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2 py-0.5 rounded mr-2">1</span>
+                                        <div>
+                                            <span class="font-medium">Regression</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/8jazNUpO3lQ" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://en.wikipedia.org/wiki/Regression_analysis" target="_blank" class="text-blue-600 hover:underline">Article</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2 py-0.5 rounded mr-2">2</span>
+                                        <div>
+                                            <span class="font-medium">Classification</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/0B3e5Gm3z8g" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://en.wikipedia.org/wiki/Statistical_classification" target="_blank" class="text-blue-600 hover:underline">Article</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- More tasks would follow same pattern -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Method Families Section -->
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">2. Method Families</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Instance-Based -->
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-gray-800 mb-3">A. Instance-Based</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded mr-2">1</span>
+                                        <div>
+                                            <span class="font-medium">K-Nearest Neighbors</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/HVXime0nQeI" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm" target="_blank" class="text-blue-600 hover:underline">Article</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- More methods would follow same pattern -->
+                                </ul>
+                            </div>
+
+                            <!-- Tree-Based -->
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-gray-800 mb-3">D. Tree-Based Models</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-0.5 rounded mr-2">1</span>
+                                        <div>
+                                            <span class="font-medium">Decision Trees</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/ZVR2Way4nwQ" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://en.wikipedia.org/wiki/Decision_tree_learning" target="_blank" class="text-blue-600 hover:underline">Article</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- More tree methods would follow same pattern -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deep Learning Section -->
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">3. Deep Learning Foundations</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Foundations -->
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-gray-800 mb-3">A. Neural Network Basics</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded mr-2">1</span>
+                                        <div>
+                                            <span class="font-medium">Perceptrons & MLPs</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/aircAruvnKk" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://en.wikipedia.org/wiki/Multilayer_perceptron" target="_blank" class="text-blue-600 hover:underline">Article</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded mr-2">2</span>
+                                        <div>
+                                            <span class="font-medium">Activation Functions</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/m0pIlLfpXWE" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://en.wikipedia.org/wiki/Activation_function" target="_blank" class="text-blue-600 hover:underline">Article</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Architectures -->
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-gray-800 mb-3">B. Advanced Architectures</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2 py-0.5 rounded mr-2">1</span>
+                                        <div>
+                                            <span class="font-medium">CNNs (ResNet, VGG)</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/YRhxdVk_sIs" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://arxiv.org/abs/1512.03385" target="_blank" class="text-blue-600 hover:underline">Paper</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px=2 py-0.5 rounded mr-2">2</span>
+                                        <div>
+                                            <span class="font-medium">RNNs/LSTMs</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/8HyCNIVRbSU" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://arxiv.org/abs/1409.2329" target="_blank" class="text-blue-600 hover:underline">Paper</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transformers & LLMs Section -->
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">4. Transformers & LLMs</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Core Concepts -->
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-gray-800 mb-3">A. Core Concepts</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="bg-green-100 text-green-800 text-xs font-medium px=2 py-0.5 rounded mr-2">1</span>
+                                        <div>
+                                            <span class="font-medium">Attention Mechanism</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/YCbUz4hoQZY" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://arxiv.org/abs/1706.03762" target="_blank" class="text-blue-600 hover:underline">Paper</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Popular Models -->
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-gray-800 mb-3">B. Popular Models</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px=2 py-0.5 rounded mr-2">1</span>
+                                        <div>
+                                            <span class="font-medium">GPT Family</span>
+                                            <div class="text-xs mt-1">
+                                                <a href="https://youtu.be/kCc8FmEb1nY" target="_blank" class="text-blue-600 hover:underline mr-2">Video</a>
+                                                <a href="https://arxiv.org/abs/2005.14165" target="_blank" class="text-blue-600 hover:underline">Paper</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Agents Section -->
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">5. AI Agents & Autonomy</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Frameworks -->
+                            <div class="bg-red-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-gray-800 mb-3">A. Frameworks</h4>
+                                <ul class="space-y=2">
+                                    <li class="flex items-start">
+                                        <span class="bg-red-100 text-red-800 text-xs font-medium px=2 py-0.5 rounded mr-2">1</span>
+                                        <div>
+                                            <span class="font-medium">LangChain</span>
+                                            <div class="text-xs mt=1">
+                                                <a href="https://youtu.be/lG7Uxts9SXs" target="_blank" class="text-blue-600 hover:underline mr=2">Video</a>
+                                                <a href="https://python.langchain.com/docs/get_started/introduction" target="_blank" class="text-blue-600 hover:underline">Docs</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More sections for MLOps, Special Topics, Research etc. -->
+                    
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-gray-800 mb-3">How to Use This Path</h3>
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li>Pick a topic from any section</li>
+                            <li>Watch the video introduction</li>
+                            <li>Read the linked articles</li>
+                            <li>Practice with provided code examples</li>
+                            <li>Move to next topic when comfortable</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -722,13 +1018,10 @@
                     <p class="text-gray-400 mt-2">Your interactive roadmap to machine learning mastery</p>
                 </div>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition-all">
+                    <a href="https://github.com/Mehervamsi1/" class="text-gray-400 hover:text-white transition-all">
                         <i class="fab fa-github fa-lg"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-all">
-                        <i class="fab fa-twitter fa-lg"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-all">
+                    <a href="https://www.linkedin.com/in/meher-vamsi-dontoju-999728171/" class="text-gray-400 hover:text-white transition-all">
                         <i class="fab fa-linkedin fa-lg"></i>
                     </a>
                 </div>
@@ -766,12 +1059,6 @@
             });
         });
 
-        // Search functionality placeholder
-        document.querySelector('input[type="text"]').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                alert('Search functionality would be implemented here');
-            }
-        });
     </script>
 </body>
 </html>
