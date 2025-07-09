@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Visual Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        .knowledge-graph {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .section-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #6e8efb;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .concept-pill {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            margin: 0.25rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            background-color: #e9d5ff;
+            color: #7e22ce;
+        }
+        .concept-pill:hover {
+            background-color: #d8b4fe;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Machine Learning Visual Guide</h1>
+            <p class="text-xl md:text-2xl opacity-90">A comprehensive, interactive roadmap to mastering ML concepts</p>
+            <div class="mt-8 flex justify-center">
+                <div class="relative w-full max-w-xl">
+                    <input type="text" placeholder="Search ML concepts..." class="w-full py-3 px-6 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-800">
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-purple-600 text-white p-2 rounded-full hover:bg-purple-700 transition-all">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <!-- Navigation Tabs -->
+        <div class="flex overflow-x-auto pb-2 mb-8 scrollbar-hide">
+            <button class="tab-btn active px-6 py-3 font-medium text-purple-700 border-b-2 border-purple-700 whitespace-nowrap" data-tab="overview">
+                <i class="fas fa-map mr-2"></i> Overview
+            </button>
+            <button class="tab-btn px-6 py-3 font-medium text-gray-500 hover:text-purple-600 whitespace-nowrap" data-tab="paradigms">
+                <i class="fas fa-brain mr-2"></i> Paradigms
+            </button>
+            <button class="tab-btn px-6 py-3 font-medium text-gray-500 hover:text-purple-600 whitespace-nowrap" data-tab="methods">
+                <i class="fas fa-project-diagram mr-2"></i> Methods
+            </button>
+            <button class="tab-btn px-6 py-3 font-medium text-gray-500 hover:text-purple-600 whitespace-nowrap" data-tab="deep-learning">
+                <i class="fas fa-network-wired mr-2"></i> Deep Learning
+            </button>
+            <button class="tab-btn px-6 py-3 font-medium text-gray-500 hover:text-purple-600 whitespace-nowrap" data-tab="applications">
+                <i class="fas fa-rocket mr-2"></i> Applications
+            </button>
+            <button class="tab-btn px-6 py-3 font-medium text-gray-500 hover:text-purple-600 whitespace-nowrap" data-tab="resources">
+                <i class="fas fa-book mr-2"></i> Resources
+            </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="tab-content active" id="overview">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Welcome to ML Visual Guide</h2>
+                <p class="text-gray-600 mb-6">This interactive guide helps you navigate the complex landscape of machine learning concepts, algorithms, and applications. Click through the tabs above to explore different aspects of ML.</p>
+                
+                <div class="knowledge-graph">
+                    <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-6 transition-all card-hover">
+                        <div class="section-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Core Paradigms</h3>
+                        <p class="text-gray-600 mb-4">Understand the fundamental learning approaches that form the basis of ML systems.</p>
+                        <div class="flex flex-wrap">
+                            <span class="concept-pill">Supervised</span>
+                            <span class="concept-pill">Unsupervised</span>
+                            <span class="concept-pill">Reinforcement</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-6 transition-all card-hover">
+                        <div class="section-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Method Families</h3>
+                        <p class="text-gray-600 mb-4">Explore different algorithmic approaches to solving ML problems.</p>
+                        <div class="flex flex-wrap">
+                            <span class="concept-pill">Tree-Based</span>
+                            <span class="concept-pill">Neural Nets</span>
+                            <span class="concept-pill">Bayesian</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-6 transition-all card-hover">
+                        <div class="section-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Deep Learning</h3>
+                        <p class="text-gray-600 mb-4">Dive into advanced neural network architectures and techniques.</p>
+                        <div class="flex flex-wrap">
+                            <span class="concept-pill">CNNs</span>
+                            <span class="concept-pill">Transformers</span>
+                            <span class="concept-pill">GANs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-6 transition-all card-hover">
+                        <div class="section-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Applications</h3>
+                        <p class="text-gray-600 mb-4">Discover real-world domains where ML is making an impact.</p>
+                        <div class="flex flex-wrap">
+                            <span class="concept-pill">Computer Vision</span>
+                            <span class="concept-pill">NLP</span>
+                            <span class="concept-pill">Recommenders</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Learning Path</h2>
+                <p class="text-gray-600 mb-6">Follow this recommended path to systematically learn machine learning:</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold mr-4">1</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Pick a cluster (e.g., Transformers)</h4>
+                            <p class="text-gray-600">Select a specific area to focus on based on your interests.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold mr-4">2</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Absorb the theory</h4>
+                            <p class="text-gray-600">Study foundational concepts and read seminal papers in the area.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold mr-4">3</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Code implementations</h4>
+                            <p class="text-gray-600">Follow with hands-on projects in PyTorch/TensorFlow.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold mr-4">4</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Optimize and deploy</h4>
+                            <p class="text-gray-600">Tune your models, deploy them, and reflect on the process.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold mr-4">5</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Repeat</h4>
+                            <p class="text-gray-600">Move to the next concept for comprehensive knowledge retention.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paradigms Tab -->
+        <div class="tab-content" id="paradigms">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Core Learning Paradigms</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Supervised Learning</h3>
+                        <p class="text-gray-600 mb-3">Learning from labeled training data to make predictions.</p>
+                        <div class="flex flex-wrap">
+                            <span class="concept-pill">Classification</span>
+                            <span class="concept-pill">Regression</span>
+                        </div>
+                    </div>
+                    
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Unsupervised Learning</h3>
+                        <p class="text-gray-600 mb-3">Finding hidden patterns in unlabeled data.</p>
+                        <div class="flex flex-wrap">
+                            <span class="concept-pill">Clustering</span>
+                            <span class="concept-pill">Dimensionality Reduction</span>
+                        </div>
+                    </div>
+                    
+                    <div class="border-l-4 border-green-500 pl-4">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Reinforcement Learning</h3>
+                        <p class="text-gray-600 mb-3">Learning through trial and error using rewards.</p>
+                        <div class="flex flex-wrap">
+                            <span class="concept-pill">Q-Learning</span>
+                            <span class="concept-pill">Policy Gradients</span>
+                        </div>
+                    </div>
+                    
+                    <div class="border-l-4 border-yellow-500 pl-4">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Self-supervised Learning</h3>
+                        <p class="text-gray-600 mb-3">Generating labels from the data itself.</p>
+                        <div class="flex flex-wrap">
+                            <span class="concept-pill">Autoencoders</span>
+                            <span class="concept-pill">Contrastive Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Core Tasks & Problems</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Regression</h3>
+                        <p class="text-sm text-gray-600">Predicting continuous values</p>
+                        <div class="flex flex-wrap mt-2">
+                            <span class="concept-pill">Linear</span>
+                            <span class="concept-pill">Polynomial</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Classification</h3>
+                        <p class="text-sm text-gray-600">Categorizing inputs into classes</p>
+                        <div class="flex flex-wrap mt-2">
+                            <span class="concept-pill">Binary</span>
+                            <span class="concept-pill">Multiclass</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Clustering</h3>
+                        <p class="text-sm text-gray-600">Grouping similar data points</p>
+                        <div class="flex flex-wrap mt-2">
+                            <span class="concept-pill">K-means</span>
+                            <span class="concept-pill">DBSCAN</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Dimensionality Reduction</h3>
+                        <p class="text-sm text-gray-600">Reducing number of variables</p>
+                        <div class="flex flex-wrap mt-2">
+                            <span class="concept-pill">PCA</span>
+                            <span class="concept-pill">t-SNE</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Generative Modeling</h3>
+                        <p class="text-sm text-gray-600">Creating new data samples</p>
+                        <div class="flex flex-wrap mt-2">
+                            <span class="concept-pill">GANs</span>
+                            <span class="concept-pill">VAEs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Anomaly Detection</h3>
+                        <p class="text-sm text-gray-600">Identifying unusual patterns</p>
+                        <div class="flex flex-wrap mt-2">
+                            <span class="concept-pill">Isolation Forest</span>
+                            <span class="concept-pill">One-Class SVM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Methods Tab -->
+        <div class="tab-content" id="methods">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Method Families</h2>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
+                            <i class="fas fa-tree mr-2 text-green-600"></i> Tree-Based Models
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Decision Trees</h4>
+                                <p class="text-sm text-gray-600">Simple tree structure for classification/regression</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Random Forests</h4>
+                                <p class="text-sm text-gray-600">Ensemble of decision trees</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Gradient Boosting</h4>
+                                <p class="text-sm text-gray-600">Sequentially corrects errors (XGBoost, LightGBM)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
+                            <i class="fas fa-project-diagram mr-2 text-blue-600"></i> Probabilistic & Bayesian
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Naive Bayes</h4>
+                                <p class="text-sm text-gray-600">Simple probabilistic classifier</p>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Gaussian Processes</h4>
+                                <p class="text-sm text-gray-600">Non-parametric Bayesian approach</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
+                            <i class="fas fa-users mr-2 text-purple-600"></i> Ensemble Methods
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Bagging</h4>
+                                <p class="text-sm text-gray-600">Parallel training of diverse models</p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Boosting</h4>
+                                <p class="text-sm text-gray-600">Sequential training focusing on errors</p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Stacking</h4>
+                                <p class="text-sm text-gray-600">Meta-model learns to combine predictions</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
+                            <i class="fas fa-robot mr-2 text-yellow-600"></i> Reinforcement Learning
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Q-Learning</h4>
+                                <p class="text-sm text-gray-600">Value-based approach</p>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Policy Gradients</h4>
+                                <p class="text-sm text-gray-600">Direct policy optimization</p>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">PPO</h4>
+                                <p class="text-sm text-gray-600">Proximal Policy Optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deep Learning Tab -->
+        <div class="tab-content" id="deep-learning">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Deep Learning Architectures</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-network-wired mr-2 text-purple-600"></i> Foundational Architectures
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg transition-all card-hover">
+                                <h4 class="font-medium text-gray-800">Feedforward Networks</h4>
+                                <p class="text-sm text-gray-600 mb-2">Basic neural networks with dense layers</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">MLP</span>
+                                    <span class="concept-pill">Perceptron</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg transition-all card-hover">
+                                <h4 class="font-medium text-gray-800">Convolutional Networks (CNNs)</h4>
+                                <p class="text-sm text-gray-600 mb-2">For processing grid-like data (images)</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">LeNet</span>
+                                    <span class="concept-pill">ResNet</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg transition-all card-hover">
+                                <h4 class="font-medium text-gray-800">Recurrent Networks (RNNs)</h4>
+                                <p class="text-sm text-gray-600 mb-2">For sequential data processing</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">LSTM</span>
+                                    <span class="concept-pill">GRU</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-atom mr-2 text-blue-600"></i> Transformers & Attention
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-lg transition-all card-hover">
+                                <h4 class="font-medium text-gray-800">Transformer</h4>
+                                <p class="text-sm text-gray-600 mb-2">Self-attention based architecture</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">Encoder</span>
+                                    <span class="concept-pill">Decoder</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-lg transition-all card-hover">
+                                <h4 class="font-medium text-gray-800">Advanced Variants</h4>
+                                <p class="text-sm text-gray-600 mb-2">Specialized transformer models</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">BERT</span>
+                                    <span class="concept-pill">GPT</span>
+                                    <span class="concept-pill">LoRA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-magic mr-2 text-green-600"></i> Generative Models
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gradient-to-br from-green-50 to-teal-50 p-4 rounded-lg transition-all card-hover">
+                                <h4 class="font-medium text-gray-800">Generative Adversarial Networks (GANs)</h4>
+                                <p class="text-sm text-gray-600 mb-2">Generator vs discriminator framework</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">DCGAN</span>
+                                    <span class="concept-pill">StyleGAN</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-green-50 to-teal-50 p-4 rounded-lg transition-all card-hover">
+                                <h4 class="font-medium text-gray-800">Variational Autoencoders (VAEs)</h4>
+                                <p class="text-sm text-gray-600 mb-2">Probabilistic approach to generation</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">Encoder</span>
+                                    <span class="concept-pill">Latent Space</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-exchange-alt mr-2 text-yellow-600"></i> Transfer Learning
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-4 rounded-lg transition-all card-hover">
+                                <h4 class="font-medium text-gray-800">Feature Extraction</h4>
+                                <p class="text-sm text-gray-600">Using pretrained models as feature extractors</p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-4 rounded-lg transition-all card-hover">
+                                <h4 class="font-medium text-gray-800">Fine-tuning</h4>
+                                <p class="text-sm text-gray-600">Adapting pretrained models to new tasks</p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-4 rounded-lg transition-all card-hover">
+                                <h4 class="font-medium text-gray-800">Multi-task Learning</h4>
+                                <p class="text-sm text-gray-600">Learning multiple tasks simultaneously</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Applications Tab -->
+        <div class="tab-content" id="applications">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">ML Applications & Domains</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-eye mr-2 text-blue-600"></i> Computer Vision
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Object Detection</h4>
+                                <p class="text-sm text-gray-600 mb-2">Identifying objects in images</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">YOLO</span>
+                                    <span class="concept-pill">Faster-RCNN</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Image Segmentation</h4>
+                                <p class="text-sm text-gray-600 mb-2">Pixel-level classification</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">U-Net</span>
+                                    <span class="concept-pill">Mask R-CNN</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Image Generation</h4>
+                                <p class="text-sm text-gray-600 mb-2">Creating new images</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">GANs</span>
+                                    <span class="concept-pill">Diffusion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-language mr-2 text-green-600"></i> Natural Language Processing
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Text Classification</h4>
+                                <p class="text-sm text-gray-600 mb-2">Categorizing text documents</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">Sentiment</span>
+                                    <span class="concept-pill">Topic</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Sequence-to-Sequence</h4>
+                                <p class="text-sm text-gray-600 mb-2">Text generation/translation</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">Machine Translation</span>
+                                    <span class="concept-pill">Summarization</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Large Language Models</h4>
+                                <p class="text-sm text-gray-600 mb-2">Advanced text understanding</p>
+                                <div class="flex flex-wrap">
+                                    <span class="concept-pill">GPT</span>
+                                    <span class="concept-pill">BERT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-chart-line mr-2 text-purple-600"></i> Other Applications
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Time-Series Forecasting</h4>
+                                <p class="text-sm text-gray-600">Predicting future values</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Recommender Systems</h4>
+                                <p class="text-sm text-gray-600">Personalized recommendations</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Graph Machine Learning</h4>
+                                <p class="text-sm text-gray-600">Learning on graph structures</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Tab -->
+        <div class="tab-content" id="resources">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Learning Resources</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-book mr-2 text-red-600"></i> Books
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-red-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Pattern Recognition and ML</h4>
+                                <p class="text-sm text-gray-600 mb-2">Christopher Bishop</p>
+                                <div class="text-xs text-gray-500">Math & Theory</div>
+                            </div>
+                            
+                            <div class="bg-red-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Deep Learning</h4>
+                                <p class="text-sm text-gray-600 mb-2">Ian Goodfellow et al.</p>
+                                <div class="text-xs text-gray-500">Comprehensive DL</div>
+                            </div>
+                            
+                            <div class="bg-red-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Dive into Deep Learning</h4>
+                                <p class="text-sm text-gray-600 mb-2">ZX Li et al.</p>
+                                <div class="text-xs text-gray-500">Hands-on approach</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-graduation-cap mr-2 text-blue-600"></i> Courses
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Andrew Ng's ML</h4>
+                                <p class="text-sm text-gray-600 mb-2">Coursera</p>
+                                <div class="text-xs text-gray-500">Beginner-friendly intro</div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Stanford CS231n</h4>
+                                <p class="text-sm text-gray-600 mb-2">Computer Vision</p>
+                                <div class="text-xs text-gray-500">Advanced CV concepts</div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Stanford CS224N</h4>
+                                <p class="text-sm text-gray-600 mb-2">NLP with DL</p>
+                                <div class="text-xs text-gray-500">Cutting-edge NLP</div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Spinning Up in RL</h4>
+                                <p class="text-sm text-gray-600 mb-2">OpenAI</p>
+                                <div class="text-xs text-gray-500">Reinforcement Learning</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-tools mr-2 text-green-600"></i> Toolkits & Libraries
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Classical ML</h4>
+                                <p class="text-sm text-gray-600">scikit-learn</p>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Deep Learning</h4>
+                                <p class="text-sm text-gray-600">PyTorch, TensorFlow</p>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">NLP</h4>
+                                <p class="text-sm text-gray-600">Hugging Face</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            <i class="fas fa-newspaper mr-2 text-purple-600"></i> Research & Community
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">DL Papers Roadmap</h4>
+                                <p class="text-sm text-gray-600">floodsung GitHub</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800">Subreddits</h4>
+                                <p class="text-sm text-gray-600">r/MachineLearning, r/learnmachinelearning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">ML Visual Guide</h3>
+                    <p class="text-gray-400 mt-2">Your interactive roadmap to machine learning mastery</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>© 2023 ML Visual Guide. All content is for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active', 'text-purple-700', 'border-purple-700'));
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.add('text-gray-500', 'hover:text-purple-600'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active', 'text-purple-700', 'border-purple-700');
+                btn.classList.remove('text-gray-500', 'hover:text-purple-600');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Concept pill hover effect
+        document.querySelectorAll('.concept-pill').forEach(pill => {
+            pill.addEventListener('mouseenter', () => {
+                pill.style.transform = 'scale(1.05)';
+            });
+            pill.addEventListener('mouseleave', () => {
+                pill.style.transform = 'scale(1)';
+            });
+        });
+
+        // Search functionality placeholder
+        document.querySelector('input[type="text"]').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                alert('Search functionality would be implemented here');
+            }
+        });
+    </script>
+</body>
+</html>
